@@ -30,9 +30,12 @@
 
             var gif = $("<img>");
 
-            gif.addClass("gif");
 
-            gif.attr("src", results[i].images.downsized.url);
+            gif.attr("src", results[i].images.original.url);
+            gif.attr("data-still", results[i].images.original_still.url);
+            gif.attr("data-animate", results[i].images.original.url);
+            gif.attr("data-state", "still");
+            gif.attr("class", "gif");
 
 
             gifDiv.append(gif);
@@ -66,6 +69,23 @@
         }
 
       }
+      
+      function imageChangeState() {          
+
+        var state = $(this).attr("data-state");
+        var animateImage = $(this).attr("data-animate");
+        var stillImage = $(this).attr("data-still");
+
+        if(state == "still") {
+            $(this).attr("src", animateImage);
+            $(this).attr("data-state", "animate");
+        }
+
+        else if(state == "animate") {
+            $(this).attr("src", stillImage);
+            $(this).attr("data-state", "still");
+        }   
+    }
 
       $("#add-gif").on("click", function (event) {
         event.preventDefault();
@@ -81,5 +101,7 @@
 
       //event listener
       $(document).on("click", ".gif-btn", "#submit", displayGifs);
+      $(document).on("click", ".gif", imageChangeState);
 
       renderButtons();
+      imageChangeState();
