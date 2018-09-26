@@ -37,6 +37,7 @@ button {
 }
 
 h1 {
+  color: rgb(43, 44, 49);
   text-align: center;
   font-weight: bolder;
   animation-name: example;
@@ -54,6 +55,8 @@ h1 {
 }
 
 img {
+  margin-top: 10px;
+  margin-bottom: 10px;
   width: 100%;
   border-radius: 8px;
 }
@@ -76,4 +79,13 @@ img {
 @keyframes queryview {
   from {left: 1000px;}
   to {left: 0px;}
+}
+
+p {
+  font-size: 18px;
+
+}
+
+a {
+  font-size: 18px;
 }
