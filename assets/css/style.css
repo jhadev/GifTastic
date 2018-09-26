@@ -22,6 +22,12 @@ button {
   padding: 10px
 }
 
+.card {
+  animation-name: queryview;
+  animation-duration: 3s;
+  animation-fill-mode: forwards;
+}
+
 #add-gif {
   margin-top: 10px;
 }
@@ -29,7 +35,7 @@ button {
 h1 {
   text-align: center;
   font-weight: bolder;
-  animation-name: example;
+  animation-name: h1;
   animation-duration: 3s;
   animation-fill-mode: forwards;
 }
@@ -38,6 +44,10 @@ h1 {
   margin-top: 20px;
   padding: 20px;
   display: block;
+  animation-name: queryview;
+  animation-duration: 3s;
+  animation-fill-mode: forwards;
+  
 }
 
 img {
@@ -56,4 +66,9 @@ img {
 @keyframes h1 {
   from {top: 500px;}
   to {top: 0px;}
+}
+
+@keyframes queryview {
+  from {left: 1000px;}
+  to {left: 0px;}
 }
