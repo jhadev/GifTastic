@@ -26,6 +26,7 @@ button {
   animation-name: queryview;
   animation-duration: 3s;
   animation-fill-mode: forwards;
+  margin-bottom: 5px;
 }
 
 #add-gif {
@@ -38,15 +39,14 @@ h1 {
   animation-name: h1;
   animation-duration: 3s;
   animation-fill-mode: forwards;
+  font-family: 'Bungee Shade', cursive;
 }
 
 #query-view {
   margin-top: 20px;
   padding: 20px;
   display: block;
-  animation-name: queryview;
-  animation-duration: 3s;
-  animation-fill-mode: forwards;
+
   
 }
 
@@ -54,16 +54,13 @@ img {
   width: 100%
 }
 
-#southpark {
-
-}
 
 @keyframes example {
   from {right: 500px;}
   to {right: 0px;}
 }
 
-@keyframes h1 {
+@keyframes animate {
   from {top: 500px;}
   to {top: 0px;}
 }
