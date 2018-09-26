@@ -59,7 +59,7 @@
           var button = $("<button>");
    
           button.addClass("gif-btn");
-          button.addClass("btn btn-warning")
+          button.addClass("btn btn-outline-secondary")
       
           button.attr("data-name", query[i]);
           
