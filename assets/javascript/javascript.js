@@ -1,4 +1,4 @@
-var query = ["Cartman", "Professor Chaos", "Butters", "Towelie"];
+var query = ["Cartman", "Professor Chaos", "Butters", "Towelie", "Walter White", "Saul Goodman"];
 
 function displayGifs() {
 
