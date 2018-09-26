@@ -30,6 +30,8 @@
 
             var gif = $("<img>");
 
+            gif.addClass("gif");
+
             gif.attr("src", results[i].images.fixed_height.url);
 
 
@@ -38,6 +40,7 @@
 
 
             $("#query-view").prepend(gifDiv);
+            
             }
           })
       };
@@ -74,6 +77,7 @@
 
         renderButtons();
       });
+      
 
       //event listener
       $(document).on("click", ".gif-btn", "#submit", displayGifs);
