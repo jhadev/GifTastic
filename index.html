@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <title>South Park Giphy Search</title>
+</head>
+
+<body>
+  <div class="jumbotron">
+    <h1 class="display-4">South Park Gifs</h1>
+  </div>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 col-12">
+        <div id="buttons-view">
+          <br>
+          <br>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-4 col-12">
+        <div class="card">
+          <div class="card-header bg-light">
+            Search for South Park related Gifs!
+          </div>
+          <form id="gif-form">
+            <label for="git-input">Add your search term to the top</label>
+            <input type="text" id="gif-input">
+            <br>
+            <button input class="btn btn-primary" id="add-gif" type="submit" value="Search">Search</button>
+          </form>
+        </div>
+      </div>
+      <div class="col-md-8 col-12">
+        <div class="card">
+          <div class="card-header bg-light">
+            Gif Results
+          </div>
+          <div id="query-view">
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.13.0/umd/popper.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.2/js/bootstrap.min.js">
+  </script>
+  <script src="assets/javascript/javascript.js"></script>
