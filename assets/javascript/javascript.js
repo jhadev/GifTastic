@@ -32,7 +32,7 @@
 
             gif.addClass("gif");
 
-            gif.attr("src", results[i].images.fixed_height.url);
+            gif.attr("src", results[i].images.downsized.url);
 
 
             gifDiv.append(gif);

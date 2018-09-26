@@ -18,3 +18,13 @@ button {
 h1 {
   text-align: center;
 }
+
+#query-view {
+  margin-top: 20px;
+  padding: 20px;
+  display: block;
+}
+
+img {
+  width: 100%
+}
