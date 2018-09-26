@@ -29,6 +29,11 @@ function displayGifs() {
 
         var gif = $("<img>");
 
+        var pTwo = $("<a>").attr("src", results[i].bitly_url);
+
+        var write = $("<a>").text(pTwo);
+
+        gifDiv.append(write);
 
         gif.attr("src", results[i].images.original.url);
         gif.attr("data-still", results[i].images.original_still.url);

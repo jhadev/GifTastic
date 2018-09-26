@@ -9,6 +9,7 @@ button {
   animation-name: example;
   animation-duration: 3s;
   animation-fill-mode: forwards;
+  font-family: 'Bungee', cursive;
 }
 
 .gif-btn {
@@ -16,6 +17,7 @@ button {
   animation-name: example;
   animation-duration: 3s;
   animation-fill-mode: forwards;
+  font-family: 'Bungee', cursive;
 }
 
 #gif-form {
