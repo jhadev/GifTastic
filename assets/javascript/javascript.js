@@ -29,9 +29,12 @@ function displayGifs() {
 
         var gif = $("<img>");
 
-        var pTwo = $("<a>").attr("src", results[i].bitly_url);
+        var url = results[i].bitly_gif_url;
+        
+        var write = $("<a href=>").html(url);
 
-        var write = $("<a>").text(pTwo);
+        var pTwo = $("<a>").attr("src", url);
+
 
         gifDiv.append(write);
 
@@ -57,7 +60,7 @@ function renderButtons() {
 
   $("#buttons-view").empty();
 
-  // Looping through the array of query
+
   for (var i = 0; i < query.length; i++) {
 
     var button = $("<button>");
@@ -100,6 +103,7 @@ $("#add-gif").on("click", function (event) {
   renderButtons();
 });
 
+//tried background image with parallax scrolling but ditched it
 var jumboHeight = $('.jumbotron').outerHeight();
 
 function parallax() {
