@@ -56,6 +56,10 @@ img {
   width: 100%
 }
 
+.card-title {
+  font-size: 20px;
+  font-weight: bold;
+}
 
 @keyframes example {
   from {right: 500px;}
