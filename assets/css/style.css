@@ -34,7 +34,7 @@ button {
 }
 
 #add-gif {
-  margin-top: 10px;
+  margin-top: 2px;
 }
 
 h1 {
@@ -52,7 +52,7 @@ h1 {
   padding: 20px;
   display: block;
 
-  
+
 }
 
 img {
@@ -68,18 +68,33 @@ img {
 }
 
 @keyframes example {
-  from {right: 500px;}
-  to {right: 0px;}
+  from {
+    right: 500px;
+  }
+
+  to {
+    right: 0px;
+  }
 }
 
 @keyframes h1 {
-  from {bottom: 0px;}
-  to {bottom: 500px;}
+  from {
+    bottom: 0px;
+  }
+
+  to {
+    bottom: 500px;
+  }
 }
 
 @keyframes queryview {
-  from {left: 1000px;}
-  to {left: 0px;}
+  from {
+    left: 1000px;
+  }
+
+  to {
+    left: 0px;
+  }
 }
 
 p {
@@ -89,4 +104,10 @@ p {
 
 a {
   font-size: 18px;
+}
+
+@media screen and (max-width: 600px) {
+  .animate {
+    font-size: 60px;
+  }
 }

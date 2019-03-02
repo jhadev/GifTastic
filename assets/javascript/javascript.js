@@ -10,70 +10,39 @@ function displayGifs() {
       url: queryURL,
       method: "GET"
     })
-
     .then(function (response) {
-      console.log(response)
-      console.log(queryURL)
-
       var results = response.data;
 
       for (var i = 0; i < results.length; i++) {
-
         var gifDiv = $("<div class='gif'>");
-
         var rating = results[i].rating;
-
         var pOne = $("<p>").text("Rating: " + rating);
-
         gifDiv.append(pOne);
-
         var gif = $("<img>");
-
         var url = results[i].bitly_gif_url;
-
         var a = $("<a>").html(url);
-
-        a.attr("href", url).attr('target','_blank')
-        
+        a.attr("href", url).attr('target', '_blank')
         gifDiv.append(a);
-
         gif.attr("src", results[i].images.original.url);
         gif.attr("data-still", results[i].images.original_still.url);
         gif.attr("data-animate", results[i].images.original.url);
         gif.attr("data-state", "still");
         gif.attr("class", "gif");
-
-
         gifDiv.append(gif);
-
-
-
         $("#query-view").prepend(gifDiv);
-
       }
     })
 };
 
 function renderButtons() {
-
-
   $("#buttons-view").empty();
-
-
   for (var i = 0; i < query.length; i++) {
-
     var button = $("<button>");
-
-    button.addClass("gif-btn");
-    button.addClass("btn btn-dark")
-
+    button.addClass("gif-btn btn btn-dark");
     button.attr("data-name", query[i]);
-
     button.text(query[i]);
-
     $("#buttons-view").append(button);
   }
-
 }
 
 function imageChangeState() {
@@ -93,12 +62,9 @@ function imageChangeState() {
 
 $("#add-gif").on("click", function (event) {
   event.preventDefault();
-
   var gifInput = $("#gif-input").val().trim();
-
-
   query.push(gifInput);
-
+  $("#gif-form").val("");
   renderButtons();
 });
 
