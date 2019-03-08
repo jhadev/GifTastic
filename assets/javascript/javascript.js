@@ -1,43 +1,50 @@
-var query = ["Cartman", "Professor Chaos", "Butters", "Towelie", "Walter White", "Saul Goodman"];
+const query = [
+  "Cartman",
+  "Professor Chaos",
+  "Butters",
+  "Towelie",
+  "Walter White",
+  "Saul Goodman"
+];
 
 function displayGifs() {
-
-  var query = $(this).attr("data-name");
-  var queryURL = "https://api.giphy.com/v1/gifs/search?q=" +
-    query + "&api_key=2mmLDVISGro0r8Qj1O5UV6rCnfAP0agk&limit=10";
+  const query = $(this).attr("data-name");
+  const queryURL =
+    "https://api.giphy.com/v1/gifs/search?q=" +
+    query +
+    "&api_key=2mmLDVISGro0r8Qj1O5UV6rCnfAP0agk&limit=10";
 
   $.ajax({
-      url: queryURL,
-      method: "GET"
-    })
-    .then(function (response) {
-      var results = response.data;
+    url: queryURL,
+    method: "GET"
+  }).then(function(response) {
+    const results = response.data;
 
-      for (var i = 0; i < results.length; i++) {
-        var gifDiv = $("<div class='gif'>");
-        var rating = results[i].rating;
-        var pOne = $("<p>").text("Rating: " + rating);
-        gifDiv.append(pOne);
-        var gif = $("<img>");
-        var url = results[i].bitly_gif_url;
-        var a = $("<a>").html(url);
-        a.attr("href", url).attr('target', '_blank')
-        gifDiv.append(a);
-        gif.attr("src", results[i].images.original.url);
-        gif.attr("data-still", results[i].images.original_still.url);
-        gif.attr("data-animate", results[i].images.original.url);
-        gif.attr("data-state", "still");
-        gif.attr("class", "gif");
-        gifDiv.append(gif);
-        $("#query-view").prepend(gifDiv);
-      }
-    })
-};
+    for (let i = 0; i < results.length; i++) {
+      const gifDiv = $("<div class='gif'>");
+      const rating = results[i].rating;
+      const pOne = $("<p>").text("Rating: " + rating);
+      gifDiv.append(pOne);
+      const gif = $("<img>");
+      const url = results[i].bitly_gif_url;
+      const a = $("<a>").html(url);
+      a.attr("href", url).attr("target", "_blank");
+      gifDiv.append(a);
+      gif.attr("src", results[i].images.original.url);
+      gif.attr("data-still", results[i].images.original_still.url);
+      gif.attr("data-animate", results[i].images.original.url);
+      gif.attr("data-state", "still");
+      gif.attr("class", "gif");
+      gifDiv.append(gif);
+      $("#query-view").prepend(gifDiv);
+    }
+  });
+}
 
 function renderButtons() {
   $("#buttons-view").empty();
-  for (var i = 0; i < query.length; i++) {
-    var button = $("<button>");
+  for (let i = 0; i < query.length; i++) {
+    const button = $("<button>");
     button.addClass("gif-btn btn btn-dark");
     button.attr("data-name", query[i]);
     button.text(query[i]);
@@ -46,10 +53,9 @@ function renderButtons() {
 }
 
 function imageChangeState() {
-
-  var state = $(this).attr("data-state");
-  var animateImage = $(this).attr("data-animate");
-  var stillImage = $(this).attr("data-still");
+  const state = $(this).attr("data-state");
+  const animateImage = $(this).attr("data-animate");
+  const stillImage = $(this).attr("data-still");
 
   if (state == "still") {
     $(this).attr("src", animateImage);
@@ -60,23 +66,41 @@ function imageChangeState() {
   }
 }
 
-$("#add-gif").on("click", function (event) {
+function handleErrors() {
+  $("#gif-input").val("");
+  const alertDiv = $("<div>");
+  alertDiv
+    .addClass("mt-2 alert alert-danger")
+    .attr("role", "alert")
+    .attr("data-dismiss", "alert")
+    .text(`Please input a valid search. Click to dismiss.`);
+  $("#gif-input").after(alertDiv);
+}
+
+$("#add-gif").on("click", function(event) {
   event.preventDefault();
-  var gifInput = $("#gif-input").val().trim();
-  query.push(gifInput);
-  $("#gif-form").val("");
-  renderButtons();
+  $(".alert").alert("close");
+  const gifInput = $("#gif-input")
+    .val()
+    .trim();
+  if (gifInput !== "") {
+    query.push(gifInput);
+    $("#gif-form").val("");
+    renderButtons();
+  } else {
+    handleErrors();
+  }
 });
 
 //tried background image with parallax scrolling but ditched it
-var jumboHeight = $('.jumbotron').outerHeight();
+const jumboHeight = $(".jumbotron").outerHeight();
 
 function parallax() {
-  var scrolled = $(window).scrollTop();
-  $('.bg').css('height', (jumboHeight - scrolled) + 'px');
+  const scrolled = $(window).scrollTop();
+  $(".bg").css("height", jumboHeight - scrolled + "px");
 }
 
-$(window).scroll(function (e) {
+$(window).scroll(function(e) {
   parallax();
 });
 

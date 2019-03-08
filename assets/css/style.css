@@ -10,7 +10,7 @@ button {
   animation-name: example;
   animation-duration: 2s;
   animation-fill-mode: forwards;
-  font-family: 'Bungee', cursive;
+  font-family: "Bungee", cursive;
 }
 
 .gif-btn {
@@ -19,11 +19,11 @@ button {
   animation-duration: 2s;
   animation-fill-mode: forwards;
   animation-iteration-count: 1;
-  font-family: 'Bungee', cursive;
+  font-family: "Bungee", cursive;
 }
 
 #gif-form {
-  padding: 10px
+  padding: 10px;
 }
 
 .card {
@@ -44,15 +44,13 @@ h1 {
   animation-name: example;
   animation-duration: 2s;
   animation-fill-mode: forwards;
-  font-family: 'Bungee Shade', cursive;
+  font-family: "Bungee Shade", cursive;
 }
 
 #query-view {
   margin-top: 20px;
   padding: 20px;
   display: block;
-
-
 }
 
 img {
@@ -99,7 +97,6 @@ img {
 
 p {
   font-size: 18px;
-
 }
 
 a {
@@ -109,5 +106,9 @@ a {
 @media screen and (max-width: 600px) {
   .animate {
     font-size: 60px;
+  }
+  .alert {
+    font-size: 12px;
+    cursor: pointer;
   }
 }
