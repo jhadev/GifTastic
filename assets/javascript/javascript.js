@@ -1,3 +1,7 @@
+$(document).ready(() => {
+  $(".results").hide()
+})
+
 const query = [
   "Cartman",
   "Professor Chaos",
@@ -8,6 +12,8 @@ const query = [
 ];
 
 function displayGifs() {
+  $(".results").show()
+  $("#query-view").empty();
   const query = $(this).attr("data-name");
   const queryURL =
     "https://api.giphy.com/v1/gifs/search?q=" +
@@ -27,7 +33,7 @@ function displayGifs() {
       gifDiv.append(pOne);
       const gif = $("<img>");
       const url = results[i].bitly_gif_url;
-      const a = $("<a>").html(url);
+      const a = $("<a class>").html(`${url}<hr>`);
       a.attr("href", url).attr("target", "_blank");
       gifDiv.append(a);
       gif.attr("src", results[i].images.original.url);
@@ -35,7 +41,7 @@ function displayGifs() {
       gif.attr("data-animate", results[i].images.original.url);
       gif.attr("data-state", "still");
       gif.attr("class", "gif");
-      gifDiv.append(gif);
+      gifDiv.prepend(gif);
       $("#query-view").prepend(gifDiv);
     }
   });
@@ -74,7 +80,9 @@ function handleErrors() {
     .addClass("mt-2 alert alert-danger")
     .attr("role", "alert")
     .attr("data-dismiss", "alert")
-    .text(`Search term has already been added or is invalid. Click to dismiss.`);
+    .text(
+      `Search term has already been added or is invalid. Click to dismiss.`
+    );
   $("#gif-input").after(alertDiv);
 }
 
@@ -84,7 +92,7 @@ $("#add-gif").on("click", function (event) {
   let gifInput = $("#gif-input")
     .val()
     .trim();
-  gifInput = capitalizeEveryWord(gifInput)
+  gifInput = capitalizeEveryWord(gifInput);
   if (gifInput !== "" && query.indexOf(gifInput) === -1) {
     query.push(gifInput);
     $("#gif-input").val("");
@@ -95,10 +103,11 @@ $("#add-gif").on("click", function (event) {
 });
 
 const capitalizeEveryWord = str => {
-  return str.toLowerCase()
-    .split(' ')
-    .map((s) => s.charAt(0).toUpperCase() + s.substring(1))
-    .join(' ');
+  return str
+    .toLowerCase()
+    .split(" ")
+    .map(s => s.charAt(0).toUpperCase() + s.substring(1))
+    .join(" ");
 };
 
 //tried background image with parallax scrolling but ditched it
