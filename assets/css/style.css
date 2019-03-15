@@ -143,4 +143,10 @@ a {
     font-size: 12px;
     cursor: pointer;
   }
+
+  #query-view {
+    padding: 20px;
+    display: block;
+    overflow: initial;
+  }
 }
