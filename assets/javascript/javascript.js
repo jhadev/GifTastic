@@ -17,7 +17,7 @@ function displayGifs() {
   $.ajax({
     url: queryURL,
     method: "GET"
-  }).then(function(response) {
+  }).then(function (response) {
     const results = response.data;
 
     for (let i = 0; i < results.length; i++) {
@@ -43,6 +43,7 @@ function displayGifs() {
 
 function renderButtons() {
   $("#buttons-view").empty();
+
   for (let i = 0; i < query.length; i++) {
     const button = $("<button>");
     button.addClass("gif-btn btn btn-dark");
@@ -73,24 +74,32 @@ function handleErrors() {
     .addClass("mt-2 alert alert-danger")
     .attr("role", "alert")
     .attr("data-dismiss", "alert")
-    .text(`Please input a valid search. Click to dismiss.`);
+    .text(`Search term has already been added or is invalid. Click to dismiss.`);
   $("#gif-input").after(alertDiv);
 }
 
-$("#add-gif").on("click", function(event) {
+$("#add-gif").on("click", function (event) {
   event.preventDefault();
   $(".alert").alert("close");
-  const gifInput = $("#gif-input")
+  let gifInput = $("#gif-input")
     .val()
     .trim();
-  if (gifInput !== "") {
+  gifInput = capitalizeEveryWord(gifInput)
+  if (gifInput !== "" && query.indexOf(gifInput) === -1) {
     query.push(gifInput);
-    $("#gif-form").val("");
+    $("#gif-input").val("");
     renderButtons();
   } else {
     handleErrors();
   }
 });
+
+const capitalizeEveryWord = str => {
+  return str.toLowerCase()
+    .split(' ')
+    .map((s) => s.charAt(0).toUpperCase() + s.substring(1))
+    .join(' ');
+};
 
 //tried background image with parallax scrolling but ditched it
 const jumboHeight = $(".jumbotron").outerHeight();
@@ -100,7 +109,7 @@ function parallax() {
   $(".bg").css("height", jumboHeight - scrolled + "px");
 }
 
-$(window).scroll(function(e) {
+$(window).scroll(function (e) {
   parallax();
 });
 
